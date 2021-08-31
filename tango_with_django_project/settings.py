@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '0.0.0.0',
     '192.168.254.118',
+    'llquillo.pythonanywhere.com'
     ]
 
 
