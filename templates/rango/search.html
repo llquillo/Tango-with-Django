@@ -1,0 +1,38 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% load googlesearch_inclusion_tags %}
+
+{% block title_block %}
+  Google Search
+{% endblock %}
+
+{% block body_block %}
+<h1>Google Search</h1>
+<!-- <script async src="https://cse.google.com/cse.js?cx=6bcfc873145ebdc58"></script> -->
+<!-- <div class="gcse-search"></div>
+<div class="gcse-searchbox-only">
+<div class="gcse-searchresults-only"></div> -->
+<div>Element Two-Column Layout Demo</div>
+
+<!-- Place this tag where you want the search box to render. -->
+<!-- <div class="gcse-searchbox" data-gname="storesearch"></div> -->
+
+<hr/>
+<script async src="https://cse.google.com/cse.js?cx=6bcfc873145ebdc58"></script>
+<div class="gcse-search"></div>
+<!-- Place this tag where you want the search results to render. -->
+<!-- <div class="gcse-searchresults" data-gname="storesearch"></div> -->
+
+<!-- <div class="gcse-searchbox" data-gname="storesearch"></div> -->
+<!-- <div class="gcse-searchresults" data-gname="storesearch"></div> -->
+
+
+  <div class="gcse-searchresults" data-gname="storesearch"></div>
+
+
+
+
+
+<br/>
+
+{% endblock %}

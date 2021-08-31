@@ -1,0 +1,12 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% load googlesearch_inclusion_tags %}
+
+{% block title_block %}
+  Google Search
+{% endblock %}
+
+{% block body_block %}
+  <h1>Results</h1>
+  {% googlesearch_results %}
+{% endblock %}

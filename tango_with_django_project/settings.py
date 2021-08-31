@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
-    '192.168.254.118'
+    '192.168.254.118',
     ]
 
 
@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+    'registration',
+    'googlesearch',
+
 ]
 
 MIDDLEWARE = [
@@ -77,6 +80,9 @@ TEMPLATES = [
         },
     },
 ]
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
+)
 
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
@@ -101,6 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': { 'min_length': 6, }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -131,3 +138,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+LOGIN_URL = 'auth_login'
+
+REGISTRATION_OPEN = True
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = 'rango:index'
+
+GOOGLE_SEARCH_API_KEY = 'AIzaSyBzCi7V_dW7NsbrNPu4YzXLI2OJ6kBlKG0'
+GOOGLE_SEARCH_ENGINE_ID = '6bcfc873145ebdc58'
+GOOGLE_SEARCH_API_VERSION = 'v1'
+GOOGLE_SEARCH_RESULTS_PER_PAGE = 10
+GOOGLE_SEARCH_MAX_PAGES = 10

@@ -1,22 +1,33 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
 
-<html>
-    <head> 
-        <title>Rango</title>
-    </head>
-    <body>  
-        <h1>Rango says...</h1> 
-        <div>
-            here is the about page. <br />
-            <strong>this tutorial has been put together by lois</strong><br /> 
-        </div>
-        <div>
-            <a href="/rango/">Home</a><br />
-            <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango"/>
-            <br/>
-            <img src="{{MEDIA_URL}}/cat.png " alt="Picture of a Cat"/>
+{% block title_block %}
+    About Page
+{% endblock %}
 
-        </div> 
-    </body>
-</html>
+{% block body_block %}
+    <h1> Rango says...</h1>
+    <div>
+        here is the about page. <br/>
+        <strong>this tutorial has been put together by lois </strong>
+        <br/>
+    </div>
+    <div>
+        <!-- <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango"/> -->
+        <br/>
+        <img src="{{MEDIA_URL}}/cat.png " alt="Picture of a Cat" width="300" height="300"/>
+    <br/>
+    <br/>
+    <button class="btn btn-primary" id="about-btn"> 
+        Click me - I'm using JQuery!
+    </button>
+    <p>This is some text for the JQuery example.</p>
+    <div id="msg">Hello! I'm a further example for JQuery testing.</div>
+
+    </div>
+{% endblock %}
+
+
+
+
+

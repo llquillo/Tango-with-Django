@@ -16,14 +16,37 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
-from django.urls import include
+from django.shortcuts import redirect, render
+from django.urls import include, path, reverse
+from django.views.generic.base import TemplateView
 
 from rango import views
+
+from django.views import View
+
+from registration.backends.simple.views import RegistrationView
+
+
+class MyRegistrationView(RegistrationView): 
+    def get_success_url(self, user):
+        return reverse('rango:register_profile')
+
+# class AboutView(View):
+#     def get(self, request):
+#         context_dict = {}
+#         context_dict['visits'] = request.session['visits']
+#         return render(request, 'rango/about.html', context_dict)
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('rango/', include('rango.urls')),
     # The above maps any URLs starting with rango/ to be handled by rango. 
     path('admin/', admin.site.urls),
+    
+    path('accounts/register/',
+         MyRegistrationView.as_view(),
+         name='registration_register'),
+
+    path('accounts/', include('registration.backends.simple.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+print(settings.MEDIA_URL)
