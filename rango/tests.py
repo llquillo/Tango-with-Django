@@ -36,7 +36,8 @@ def add_category(name, views=0, likes=0):
     category = Category.objects.get_or_create(name=name)[0] 
     category.views = views
     category.likes = likes
-    category.save() return category
+    category.save() 
+    return category
 
 def test_index_view_with_categories(self): 
     """
